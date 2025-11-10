@@ -7,7 +7,7 @@
 </head>
 <body>
     <h3>Matematika Sederhana</h3>
-    <form action="ng-{{route('kuraaction')}}" method="post">
+    <form action="{{route('kurang-action')}}" method="post">
         @csrf
         <label for="angka1">Angka 1:</label>
         <input type="number" id="angka1" name="angka1" required><br><br>
