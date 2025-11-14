@@ -14,6 +14,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Photo</th>
                         <th>Category</th>
                         <th>Title</th>
                         <th>Content</th>
@@ -24,6 +25,9 @@
                     @foreach($datas as $key => $data)
                     <tr>
                         <td>{{ $key + 1 }}</td>
+                        <td>
+                            <img width="100" src="{{asset('storage/'.$data->photo)}}" alt="">
+                        </td>
                         <td>{{ $data->category->name }}</td>
                         <td>{{ $data->title }}</td>
                         <td>{{ $data->content }}</td>

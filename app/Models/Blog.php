@@ -14,6 +14,9 @@ class Blog extends Model
         'title',
         'slug',
         'content',
+        'photo',
+        'status',
+        'writter',
     ];
 
     //object relation mapping

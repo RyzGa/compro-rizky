@@ -7,7 +7,7 @@
     </div>
     <div class="card-body">
         <form action="{{route('blog.store')}}"
-        method="POST">
+        method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Category Blog</label>
@@ -25,6 +25,17 @@
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
                 <textarea name="content" id="summernote" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Photo</label>
+                <input type="file" name="photo">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Status</label>
+                <select name="status" class="form-control">
+                    <option value="1">Publish</option>
+                    <option value="0">Draft</option>
+                </select>
             </div>
             <div class="mb-3">
                 <button class="btn btn-primary">Save</button>

@@ -6,21 +6,37 @@
         </card-header>
     </div>
     <div class="card-body">
-        <form action="{{route('user.update', $edit->id)}}"
-        method="post">
+        <form action="{{route('blog.update', $edit->id)}}"
+        method="POST" enctype="multipart/form-data">
             @csrf
-            @method('put')
+            @method('PUT')
             <div class="mb-3">
-                <label for="" class="form-label">Full Name</label>
-                <input type="text" name="name" class="form-control" placeholder="Enter your full name" value="{{ $edit->name }}">
+                <label for="name" class="form-label">Category Blog</label>
+                <select name="category_id" class="form-control">
+                    <option value="">-- Select Category --</option>
+                    @foreach($categories as $category)
+                        <option {{ $edit->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter your email" value="{{ $edit->email }}">
+                <label for="" class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" placeholder="Enter blog title"  value="{{ $edit->title }}">
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter your password">
+                <label for="content" class="form-label">Content</label>
+                <textarea name="content" id="summernote" cols="30" rows="10" class="form-control">{{ $edit->content }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Photo</label>
+                <input type="file" name="photo">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Status</label>
+                <select name="status" class="form-control">
+                    <option {{ $edit->status == 1 ? 'selected' : '' }} value="1">Publish</option>
+                    <option {{ $edit->status == 0 ? 'selected' : '' }} value="0">Draft</option>
+                </select>
             </div>
             <div class="mb-3">
                 <button class="btn btn-primary">Save</button>

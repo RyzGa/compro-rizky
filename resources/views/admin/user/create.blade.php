@@ -24,7 +24,7 @@
             <div class="mb-3">
                 <button class="btn btn-primary">Save</button>
             </div>
-               
+
         </form>
     </div>
 @endsection

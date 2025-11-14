@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
             $table->text('content');
+            $table->string('status')->nullable();
+            $table->string('writter')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }
